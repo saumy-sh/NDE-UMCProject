@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Upload & Model Inference</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <h2>Upload an Image for Inference</h2>
+
+    <form action="/" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required>
+        <br><br>
+        <input type="submit" value="Upload & Predict">
+    </form>
+
+    {% if filename %}
+        <div>
+            <img src="{{ url_for('uploaded_file', filename=filename) }}" alt="Uploaded Image">
+        </div>
+        <div class="result">
+            <strong>Prediction:</strong> {{ result }}
+        </div>
+    {% elif message %}
+        <p style="color:red;">{{ message }}</p>
+    {% endif %}
+</body>
+</html>

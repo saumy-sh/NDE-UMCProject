@@ -1,3 +1,2 @@
-testing/DB
-testing/surface-cracks-dataset
-testing/weld_defects
+experimentation/datasets
+*/__pycache__
